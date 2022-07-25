@@ -8,5 +8,5 @@ target 'PokedexApp' do
   # Pods for PokedexApp
 	
  pod 'Kingfisher'
-
+ pod 'Bagel'
 end

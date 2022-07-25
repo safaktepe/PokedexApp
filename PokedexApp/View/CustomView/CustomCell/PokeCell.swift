@@ -19,9 +19,5 @@ class PokeCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func setup(with pokemon: PokemonEntry) {
-        cellImageView.image = UIImage(named: "blindspot")
-        cellNameLabel.text = pokemon.name
-    }
 
 }
