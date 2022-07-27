@@ -38,7 +38,9 @@ class NetworkService{
             }
             do {
                 let serverData   = try JSONDecoder().decode(T.self, from: data)
-                completion(serverData)
+                onMain {
+                    completion(serverData)
+                }
             } catch {
                 failure(error)
             }
@@ -48,3 +50,8 @@ class NetworkService{
     
 }
 
+func onMain(completion: @escaping () -> Void ) {
+    DispatchQueue.main.async {
+        completion()
+    }
+}

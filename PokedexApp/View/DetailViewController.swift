@@ -29,50 +29,49 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var imageView            : UIImageView!
     
     var str             = ""
-    var manager         = PokemonManager()
-    var chosenPokemon   : DetailPokemon?
-    var pokeId          : Int?
-
+    let viewModel       = DetailViewModel()
+    
+    //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-
-        // MARK: - Service
-        if let pokeId = pokeId {
-            manager.getDetailedPokemon(id: pokeId, { pokemon in
-            self.chosenPokemon = pokemon
-        }) } else { print("Ooops") }
-        
-        //MARK: - Presentation
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.pokeNameLabel?.text          = self.chosenPokemon?.name
-            self.idLabel.text                 = "\(self.chosenPokemon?.id ?? 0)"
-            self.weightLabel?.text            = "\(self.chosenPokemon?.weight ?? 0)"
-            self.heightLabel?.text            = "\(self.chosenPokemon?.height ?? 0)"
-            var id: Int                       = self.chosenPokemon?.id  ?? 1
-            var imageUrl                      = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png"
-            self.imageView.kf.setImage(with: URL(string: imageUrl))
-            self.setTypes(typeElements: self.chosenPokemon?.types)
-            self.setProgressAnimates()
-            var backgroundColor: String       = self.chosenPokemon?.types[0].type.name ?? ""
-            print(backgroundColor)
-            self.backgroundView.backgroundColor    = UIColor(named: backgroundColor)
-        }
-
+        viewModel.onComplete =  { [weak self] in
+            self?.setupDeteailPage()
+            }
+        viewModel.setChosenPokemon()
     }
-    
+        
+    //MARK: - Presentation
+        
+        func setupDeteailPage() {
+        
+        self.pokeNameLabel?.text          = self.viewModel.chosenPokemon?.name
+        self.idLabel.text                 = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.id)
+        self.weightLabel?.text            = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.weight)
+        self.heightLabel?.text            = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.height)
+//        var id: Int                       = self.viewModel.chosenPokemon?.id  ?? 1
+//        var imageUrl                      = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png" //  staticBaseUrl
+        var imageUrl = self.viewModel.setImage()
+        self.imageView.kf.setImage(with: URL(string: imageUrl))
+        self.setTypes(typeElements: self.viewModel.chosenPokemon?.types)
+        
+        self.setProgressAnimates()
+        var backgroundColor: String       = self.viewModel.chosenPokemon?.types[0].type.name ?? ""
+        print(backgroundColor)
+        self.backgroundView.backgroundColor    = UIColor(named: backgroundColor)
+    }
     //MARK: - Functions
     func animateStatBars(value: Float, bar: UIProgressView) {
         bar.setProgress(value, animated: true)
     }
     
     func setProgressAnimates() {
-        var hp        : Int = chosenPokemon?.stats[0].base_stat ?? 0
-        var atk       : Int = chosenPokemon?.stats[1].base_stat ?? 0
-        var def       : Int = chosenPokemon?.stats[2].base_stat ?? 0
-        var spdef     : Int = chosenPokemon?.stats[4].base_stat ?? 0
-        var speed     : Int = chosenPokemon?.stats[5].base_stat ?? 0
+        let hp        : Int = viewModel.chosenPokemon?.stats[0].base_stat ?? 0
+        let atk       : Int = viewModel.chosenPokemon?.stats[1].base_stat ?? 0
+        let def       : Int = viewModel.chosenPokemon?.stats[2].base_stat ?? 0
+        let spdef     : Int = viewModel.chosenPokemon?.stats[4].base_stat ?? 0
+        let speed     : Int = viewModel.chosenPokemon?.stats[5].base_stat ?? 0
                 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
         self.animateStatBars(value: self.formatFloat(value: hp),    bar: self.hpProgressBar)
@@ -90,9 +89,15 @@ class DetailViewController: UIViewController {
         return formatedValue
     }
     
+    func convertStringFromOptInt(value: Int?) -> String{
+        var stringValue: String = "\(value ?? 0)"
+        return stringValue
+    }
+    
+    
     func setTypes( typeElements: [TypeElement]? ) {
         firstTitleLabel?.text                  = typeElements?[0].type.name
-        var backgroundColorFirst: String       = chosenPokemon?.types[0].type.name ?? ""
+        var backgroundColorFirst: String       = viewModel.chosenPokemon?.types[0].type.name ?? ""
         [firstTitleLabel?.backgroundColor: [UIColor (named: backgroundColorFirst)]]
         if typeElements?.count == 1 {
             secondTitleLabel?.isHidden = true
@@ -100,7 +105,7 @@ class DetailViewController: UIViewController {
         else {
             secondTitleLabel?.isHidden             = false
             secondTitleLabel?.text                 = typeElements?[1].type.name
-            var backgroundColorSecond: String      = chosenPokemon?.types[1].type.name ?? ""
+            var backgroundColorSecond: String      = viewModel.chosenPokemon?.types[1].type.name ?? ""
             [secondTitleLabel?.backgroundColor:[UIColor (named: backgroundColorSecond)]]
         }
     }

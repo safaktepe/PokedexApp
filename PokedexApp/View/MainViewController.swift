@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     let leftRightPadding             = 15.0
     var mainViewModel                : MainViewModel = MainViewModel()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
@@ -57,14 +59,22 @@ extension MainViewController: UICollectionViewDataSource {
         return cell
     }
     
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+    
+    
         //MARK:  didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
-        let currentCell                   = mainViewModel.pokemonList[indexPath.item]
+        let currentData                   = mainViewModel.pokemonList[indexPath.row]
         let detailVC                      = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+//        detailVC?.viewModel.pokeId      = detailVC?.viewModel.getPokemonIndex(pokemon: currentData)
+        detailVC?.viewModel.pokeId        =  (indexPath.row + 1)
+
         guard let detailViewController    = detailVC else { return }
         DispatchQueue.main.async {
-        detailViewController.pokeId       = self.mainViewModel.getPokemonIndex(pokemon: currentCell)
+//        detailViewController.pokeId       = self.mainViewModel.getPokemonIndex(pokemon: currentCell)
         }
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
