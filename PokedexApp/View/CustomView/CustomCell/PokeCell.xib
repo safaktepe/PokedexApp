@@ -11,35 +11,38 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokeCell" id="gTV-IL-0wX" customClass="PokeCell" customModule="PokedexApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="361" height="319"/>
+            <rect key="frame" x="0.0" y="0.0" width="310" height="274"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="361" height="319"/>
+                <rect key="frame" x="0.0" y="0.0" width="310" height="274"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfG-PB-06i" customClass="CardView" customModule="PokedexApp" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="361" height="319"/>
+                        <rect key="frame" x="0.0" y="0.0" width="310" height="274"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J6t-r0-EwJ">
-                                <rect key="frame" x="24" y="15" width="315" height="233"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="233" id="z0c-W1-iK1"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwk-Ut-SMI">
-                                <rect key="frame" x="160" y="266" width="41.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="133" y="140" width="44.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1m5-7V-Tak"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J6t-r0-EwJ">
+                                <rect key="frame" x="105" y="16" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ZWM-qh-r8d"/>
+                                    <constraint firstAttribute="height" constant="100" id="k1Z-1p-kZf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="J6t-r0-EwJ" secondAttribute="trailing" constant="22" id="0Dl-ek-0rF"/>
-                            <constraint firstItem="gwk-Ut-SMI" firstAttribute="top" secondItem="J6t-r0-EwJ" secondAttribute="bottom" constant="18" id="Ggx-6J-rHH"/>
-                            <constraint firstItem="J6t-r0-EwJ" firstAttribute="leading" secondItem="OfG-PB-06i" secondAttribute="leading" constant="24" id="eug-c5-086"/>
+                            <constraint firstItem="J6t-r0-EwJ" firstAttribute="top" secondItem="OfG-PB-06i" secondAttribute="top" constant="16" id="Lxn-6R-TEa"/>
+                            <constraint firstItem="gwk-Ut-SMI" firstAttribute="top" secondItem="J6t-r0-EwJ" secondAttribute="bottom" constant="24" id="TJG-ck-Qg7"/>
                             <constraint firstItem="gwk-Ut-SMI" firstAttribute="centerX" secondItem="OfG-PB-06i" secondAttribute="centerX" id="iOF-Tu-5hh"/>
-                            <constraint firstItem="J6t-r0-EwJ" firstAttribute="top" secondItem="OfG-PB-06i" secondAttribute="top" constant="15" id="wn2-kq-LXu"/>
+                            <constraint firstItem="J6t-r0-EwJ" firstAttribute="centerX" secondItem="OfG-PB-06i" secondAttribute="centerX" id="qB4-UQ-LmZ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -51,14 +54,14 @@
                 <constraint firstAttribute="trailing" secondItem="OfG-PB-06i" secondAttribute="trailing" id="aGJ-xT-yqE"/>
                 <constraint firstItem="OfG-PB-06i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qd1-GW-QEJ"/>
             </constraints>
-            <size key="customSize" width="361" height="319"/>
+            <size key="customSize" width="310" height="274"/>
             <connections>
                 <outlet property="cellContainerView" destination="OfG-PB-06i" id="FWD-Ld-3Ok"/>
                 <outlet property="cellContainerview" destination="OfG-PB-06i" id="o7T-8u-cxk"/>
                 <outlet property="cellImageView" destination="J6t-r0-EwJ" id="r2i-6U-8tn"/>
                 <outlet property="cellNameLabel" destination="gwk-Ut-SMI" id="Dqt-1n-1YN"/>
             </connections>
-            <point key="canvasLocation" x="99.275362318840592" y="53.236607142857139"/>
+            <point key="canvasLocation" x="62.318840579710148" y="38.169642857142854"/>
         </collectionViewCell>
     </objects>
 </document>

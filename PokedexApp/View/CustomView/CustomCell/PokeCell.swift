@@ -19,9 +19,5 @@ class PokeCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func setup(with dummy: Dummy) {
-        cellImageView.image = dummy.image
-        cellNameLabel.text = dummy.title
-    }
 
 }
