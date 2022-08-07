@@ -17,13 +17,16 @@ class MainViewController: UIViewController {
     var mainViewModel                : MainViewModel = MainViewModel()
     
     
-    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         title = "Pokedex"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     //MARK: - Configuration for CollectionView
@@ -40,7 +43,7 @@ class MainViewController: UIViewController {
     
 }
 
-        //MARK: - CollectionView Extensions
+    //MARK: - CollectionView Extensions
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -48,7 +51,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     
-        //MARK: CellForItemAt
+    //MARK: CellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell                    = collectionView.dequeueReusableCell(withReuseIdentifier: customCellId, for: indexPath) as! PokeCell

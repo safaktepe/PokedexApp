@@ -35,6 +35,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         configure()
         viewModel.onComplete =  { [weak self] in
             self?.setupDeteailPage()
@@ -46,20 +47,16 @@ class DetailViewController: UIViewController {
         
         func setupDeteailPage() {
         
-        self.pokeNameLabel?.text          = self.viewModel.chosenPokemon?.name
-        self.idLabel.text                 = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.id)
-        self.weightLabel?.text            = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.weight)
-        self.heightLabel?.text            = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.height)
-//        var id: Int                       = self.viewModel.chosenPokemon?.id  ?? 1
-//        var imageUrl                      = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png" //  staticBaseUrl
-        var imageUrl = self.viewModel.setImage()
+        self.pokeNameLabel?.text             = self.viewModel.chosenPokemon?.name
+        self.idLabel.text                    = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.id)
+        self.weightLabel?.text               = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.weight)
+        self.heightLabel?.text               = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.height)
+        var imageUrl                         = self.viewModel.setImage()
         self.imageView.kf.setImage(with: URL(string: imageUrl))
         self.setTypes(typeElements: self.viewModel.chosenPokemon?.types)
-        
         self.setProgressAnimates()
-        var backgroundColor: String       = self.viewModel.chosenPokemon?.types[0].type.name ?? ""
-        print(backgroundColor)
-        self.backgroundView.backgroundColor    = UIColor(named: backgroundColor)
+        var backgroundColor: String          = self.viewModel.chosenPokemon?.types[0].type.name ?? ""
+        self.backgroundView.backgroundColor  = UIColor(named: backgroundColor)
     }
     //MARK: - Functions
     func animateStatBars(value: Float, bar: UIProgressView) {

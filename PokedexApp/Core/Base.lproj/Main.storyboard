@@ -47,6 +47,21 @@
             </objects>
             <point key="canvasLocation" x="-313.04347826086956" y="101.78571428571428"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="LYx-Vb-iAK">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="4sK-DZ-Iad" customClass="SplashViewController" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4ly-gI-1OT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9nr-JW-1Ge"/>
+                        <color key="backgroundColor" red="0.16862745098039217" green="0.16078431372549018" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uC4-1f-3zQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-294" y="772"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="2XC-WZ-gvn">
             <objects>
@@ -247,15 +262,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulbasaur" translatesAutoresizingMaskIntoConstraints="NO" id="J1I-OY-zN0">
-                                        <rect key="frame" x="103.5" y="63" width="207" height="170"/>
+                                        <rect key="frame" x="72.5" y="51.5" width="269" height="192.5"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16862745098039217" green="0.16078431372549018" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="J1I-OY-zN0" firstAttribute="width" secondItem="NDL-EY-4RJ" secondAttribute="width" multiplier="0.5" id="0xX-Yl-FLL"/>
+                                    <constraint firstItem="J1I-OY-zN0" firstAttribute="width" secondItem="NDL-EY-4RJ" secondAttribute="width" multiplier="0.65" id="0xX-Yl-FLL"/>
                                     <constraint firstItem="6BR-uD-duo" firstAttribute="top" secondItem="NDL-EY-4RJ" secondAttribute="topMargin" id="942-7J-NKm"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="6BR-uD-duo" secondAttribute="trailing" constant="8" id="Bdx-US-4tk"/>
-                                    <constraint firstItem="J1I-OY-zN0" firstAttribute="height" secondItem="NDL-EY-4RJ" secondAttribute="height" multiplier="0.575296" id="WNE-Zr-RXP"/>
+                                    <constraint firstItem="J1I-OY-zN0" firstAttribute="height" secondItem="NDL-EY-4RJ" secondAttribute="height" multiplier="0.65" id="WNE-Zr-RXP"/>
                                     <constraint firstItem="J1I-OY-zN0" firstAttribute="centerX" secondItem="NDL-EY-4RJ" secondAttribute="centerX" id="ZPU-bW-Wnu"/>
                                     <constraint firstItem="6BR-uD-duo" firstAttribute="top" secondItem="NDL-EY-4RJ" secondAttribute="top" constant="52" id="gXm-QE-HMk"/>
                                     <constraint firstItem="J1I-OY-zN0" firstAttribute="centerY" secondItem="NDL-EY-4RJ" secondAttribute="centerY" id="n8K-u2-wfc"/>
@@ -297,6 +312,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elg-Wg-ygP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="556.52173913043487" y="101.78571428571428"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="xgO-cp-yxE">
+            <objects>
+                <viewController storyboardIdentifier="FavoritesViewController" id="wBv-k9-elc" customClass="FavoritesViewController" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XcW-UJ-KTq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yb2-QL-WPN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.16078431369999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.16862745100000001" green="0.16078431369999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QCj-QC-QR6"/>
+                        <color key="backgroundColor" red="0.16862745100000001" green="0.16078431369999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QCj-QC-QR6" firstAttribute="trailing" secondItem="yb2-QL-WPN" secondAttribute="trailing" id="CR4-62-CJJ"/>
+                            <constraint firstItem="QCj-QC-QR6" firstAttribute="bottom" secondItem="yb2-QL-WPN" secondAttribute="bottom" id="Epd-Pk-foE"/>
+                            <constraint firstItem="yb2-QL-WPN" firstAttribute="top" secondItem="QCj-QC-QR6" secondAttribute="top" id="ZcS-ti-l4M"/>
+                            <constraint firstItem="yb2-QL-WPN" firstAttribute="leading" secondItem="QCj-QC-QR6" secondAttribute="leading" id="lxM-Tr-VZK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myTableView" destination="yb2-QL-WPN" id="oOJ-Gm-zCp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WHr-3R-cua" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1382.608695652174" y="101.78571428571428"/>
         </scene>
     </scenes>
     <resources>

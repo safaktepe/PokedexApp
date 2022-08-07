@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="144" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="PokedexApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="436" height="144"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="436" height="144"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jn9-eC-G4E" customClass="CardView" customModule="PokedexApp" customModuleProvider="target">
+                        <rect key="frame" x="6" y="6" width="424" height="132"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bulbasaur" translatesAutoresizingMaskIntoConstraints="NO" id="YaE-ba-dAv">
+                                <rect key="frame" x="290.5" y="8" width="117.5" height="116"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#013" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbf-S0-TKj">
+                                <rect key="frame" x="27" y="16" width="38.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="42" id="hHg-nL-Iud"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.55766950930000003" green="0.57169981059999997" blue="0.55915887210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Bulbasaur" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwP-4R-HNq">
+                                <rect key="frame" x="27" y="81" width="148" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="42" id="pIf-X3-aEc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="29"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaL-S9-xh1">
+                                <rect key="frame" x="16" y="129" width="392" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16862745100000001" green="0.16078431369999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YaE-ba-dAv" firstAttribute="height" secondItem="jn9-eC-G4E" secondAttribute="height" multiplier="0.878788" id="12V-UL-3Ti"/>
+                            <constraint firstItem="dbf-S0-TKj" firstAttribute="leading" secondItem="jn9-eC-G4E" secondAttribute="leading" constant="27" id="4oH-hf-jkx"/>
+                            <constraint firstItem="YaE-ba-dAv" firstAttribute="width" secondItem="jn9-eC-G4E" secondAttribute="width" multiplier="0.277123" id="AXV-u5-88y"/>
+                            <constraint firstItem="YaE-ba-dAv" firstAttribute="centerY" secondItem="jn9-eC-G4E" secondAttribute="centerY" id="HOU-Ef-2Ye"/>
+                            <constraint firstItem="GaL-S9-xh1" firstAttribute="leading" secondItem="jn9-eC-G4E" secondAttribute="leading" constant="16" id="Qdu-wH-uZ9"/>
+                            <constraint firstItem="dbf-S0-TKj" firstAttribute="top" secondItem="jn9-eC-G4E" secondAttribute="top" constant="16" id="TCa-kM-QoA"/>
+                            <constraint firstAttribute="trailing" secondItem="YaE-ba-dAv" secondAttribute="trailing" constant="16" id="aA3-NW-KkN"/>
+                            <constraint firstItem="GaL-S9-xh1" firstAttribute="width" secondItem="jn9-eC-G4E" secondAttribute="width" multiplier="0.924528" id="bk6-S6-zKx"/>
+                            <constraint firstAttribute="bottom" secondItem="CwP-4R-HNq" secondAttribute="bottom" constant="16" id="cUS-Tl-MoP"/>
+                            <constraint firstItem="CwP-4R-HNq" firstAttribute="leading" secondItem="jn9-eC-G4E" secondAttribute="leading" constant="27" id="hcm-Hk-PtO"/>
+                            <constraint firstAttribute="trailing" secondItem="GaL-S9-xh1" secondAttribute="trailing" constant="16" id="rIe-dC-L5F"/>
+                            <constraint firstItem="GaL-S9-xh1" firstAttribute="height" secondItem="jn9-eC-G4E" secondAttribute="height" multiplier="0.00757576" id="wK2-lv-Q5n"/>
+                            <constraint firstAttribute="bottom" secondItem="GaL-S9-xh1" secondAttribute="bottom" constant="2" id="zKK-hh-VbH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.16862745100000001" green="0.16078431369999999" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="jn9-eC-G4E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="3Yz-qo-Ehz"/>
+                    <constraint firstAttribute="trailing" secondItem="jn9-eC-G4E" secondAttribute="trailing" constant="6" id="I1n-SJ-HRi"/>
+                    <constraint firstAttribute="bottom" secondItem="jn9-eC-G4E" secondAttribute="bottom" constant="6" id="YyJ-kb-v9r"/>
+                    <constraint firstItem="jn9-eC-G4E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="j5p-fy-5dt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="favIdLabel" destination="dbf-S0-TKj" id="3m2-RQ-63V"/>
+                <outlet property="favImageView" destination="YaE-ba-dAv" id="LDa-7b-pAd"/>
+                <outlet property="favNameLabel" destination="CwP-4R-HNq" id="jRO-ga-4G3"/>
+            </connections>
+            <point key="canvasLocation" x="215.94202898550725" y="139.28571428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bulbasaur" width="600" height="535"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

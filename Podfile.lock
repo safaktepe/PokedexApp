@@ -1,24 +1,24 @@
 PODS:
-  - Bagel (1.4.0):
-    - CocoaAsyncSocket
   - CocoaAsyncSocket (7.6.5)
   - Kingfisher (6.3.1)
+  - lottie-ios (3.4.1)
 
 DEPENDENCIES:
-  - Bagel
+  - CocoaAsyncSocket
   - Kingfisher
+  - lottie-ios
 
 SPEC REPOS:
   trunk:
-    - Bagel
     - CocoaAsyncSocket
     - Kingfisher
+    - lottie-ios
 
 SPEC CHECKSUMS:
-  Bagel: c3fa6bcbd52db9ca976edbafd7638f0553ded101
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  lottie-ios: 016449b5d8be0c3dcbcfa0a9988469999cd04c5d
 
-PODFILE CHECKSUM: 9be1e93c5e5f3a496eddb69c79fdc5601ac2ba7d
+PODFILE CHECKSUM: 0db157b75304f06ce5e2e267146b8c3cb6c21b77
 
 COCOAPODS: 1.11.3
