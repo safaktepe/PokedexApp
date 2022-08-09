@@ -140,6 +140,11 @@ class DetailViewController: UIViewController {
     }
     
     
-    
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+        var listOfCars: [DetailPokemon] = LocalDatabaseManager.getAllObjects
+        listOfCars.append(viewModel.chosenPokemon ?? LocalDatabaseManager.sampleDetailedPokemon)
+        LocalDatabaseManager.saveAllObjects(allObjects: listOfCars)
+    }
     
 }
+

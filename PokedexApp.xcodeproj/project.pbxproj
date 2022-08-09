@@ -25,6 +25,7 @@
 		62D40BFA2874231000A748E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62D40BF92874231000A748E8 /* Assets.xcassets */; };
 		62D40BFD2874231000A748E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D40BFB2874231000A748E8 /* LaunchScreen.storyboard */; };
 		62D40C0A2874304C00A748E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D40C092874304C00A748E8 /* MainViewController.swift */; };
+		62DE7A6C28A151AB002807F7 /* LocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DE7A6B28A151AB002807F7 /* LocalDatabaseManager.swift */; };
 		62E9A12B288DDD4100242F79 /* TypeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E9A12A288DDD4100242F79 /* TypeColors.swift */; };
 		62F1D6E52896A3210055F123 /* pikachu.json in Resources */ = {isa = PBXBuildFile; fileRef = 62F1D6E42896A3210055F123 /* pikachu.json */; };
 		D46C0445A00E59262369B6D4 /* Pods_PokedexApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBCA53D2B1618395CDD343F /* Pods_PokedexApp.framework */; };
@@ -52,6 +53,7 @@
 		62D40BFC2874231000A748E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62D40BFE2874231000A748E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62D40C092874304C00A748E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		62DE7A6B28A151AB002807F7 /* LocalDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseManager.swift; sourceTree = "<group>"; };
 		62E9A12A288DDD4100242F79 /* TypeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColors.swift; sourceTree = "<group>"; };
 		62F1D6E42896A3210055F123 /* pikachu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pikachu.json; sourceTree = "<group>"; };
 		6FBCA53D2B1618395CDD343F /* Pods_PokedexApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokedexApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 			children = (
 				62457BAF2876E60F00ED118A /* NetworkService.swift */,
 				62C96134287E024F0053C3B0 /* PokemonManager.swift */,
+				62DE7A6B28A151AB002807F7 /* LocalDatabaseManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				62AC4D69289691BA00F24028 /* FavoritesViewController.swift in Sources */,
 				62AC4D6B2896A17100F24028 /* SplashViewController.swift in Sources */,
 				62D40BF12874230E00A748E8 /* AppDelegate.swift in Sources */,
+				62DE7A6C28A151AB002807F7 /* LocalDatabaseManager.swift in Sources */,
 				62D40C0A2874304C00A748E8 /* MainViewController.swift in Sources */,
 				6292902728759397008AA399 /* CardView.swift in Sources */,
 				625707122874BC0D0023410F /* DetailViewController.swift in Sources */,
