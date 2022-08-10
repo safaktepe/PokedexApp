@@ -10,4 +10,6 @@ target 'PokedexApp' do
  pod 'Kingfisher'
  pod 'CocoaAsyncSocket'
  pod 'lottie-ios'
+ pod 'VerticalCardSwiper'
+
 end

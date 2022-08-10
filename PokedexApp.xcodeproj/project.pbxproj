@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6218200C2896D76A00BEB198 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6218200A2896D76A00BEB198 /* TableViewCell.swift */; };
 		6218200D2896D76A00BEB198 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6218200B2896D76A00BEB198 /* TableViewCell.xib */; };
+		62249FC128A3DE1E003D34CB /* SwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62249FBF28A3DE1E003D34CB /* SwipeCell.swift */; };
+		62249FC228A3DE1E003D34CB /* SwipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62249FC028A3DE1E003D34CB /* SwipeCell.xib */; };
 		622796CE287B2BA800797FB2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622796CD287B2BA800797FB2 /* MainViewModel.swift */; };
 		622796D0287B2BB100797FB2 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622796CF287B2BB100797FB2 /* DetailViewModel.swift */; };
 		62457BB02876E60F00ED118A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62457BAF2876E60F00ED118A /* NetworkService.swift */; };
@@ -35,6 +37,8 @@
 		2D4DDB96C5F7ED694F3C1507 /* Pods-PokedexApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokedexApp.release.xcconfig"; path = "Target Support Files/Pods-PokedexApp/Pods-PokedexApp.release.xcconfig"; sourceTree = "<group>"; };
 		6218200A2896D76A00BEB198 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6218200B2896D76A00BEB198 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		62249FBF28A3DE1E003D34CB /* SwipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCell.swift; sourceTree = "<group>"; };
+		62249FC028A3DE1E003D34CB /* SwipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeCell.xib; sourceTree = "<group>"; };
 		622796CD287B2BA800797FB2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		622796CF287B2BB100797FB2 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		62457BAF2876E60F00ED118A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -81,9 +85,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		62249FBE28A3DDDD003D34CB /* SwipeCardCell */ = {
+			isa = PBXGroup;
+			children = (
+				62249FBF28A3DE1E003D34CB /* SwipeCell.swift */,
+				62249FC028A3DE1E003D34CB /* SwipeCell.xib */,
+			);
+			path = SwipeCardCell;
+			sourceTree = "<group>";
+		};
 		6257070C2874BBC00023410F /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				62249FBE28A3DDDD003D34CB /* SwipeCardCell */,
 				629BF9572896A7780026E126 /* TableViewcell */,
 				629BF9562896A76A0026E126 /* CollectionViewCell */,
 			);
@@ -284,6 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62249FC228A3DE1E003D34CB /* SwipeCell.xib in Resources */,
 				625707102874BBDC0023410F /* PokeCell.xib in Resources */,
 				6218200D2896D76A00BEB198 /* TableViewCell.xib in Resources */,
 				62D40BFD2874231000A748E8 /* LaunchScreen.storyboard in Resources */,
@@ -344,6 +359,7 @@
 			files = (
 				6257070F2874BBDC0023410F /* PokeCell.swift in Sources */,
 				62C96137287E02A00053C3B0 /* PokemonPage.swift in Sources */,
+				62249FC128A3DE1E003D34CB /* SwipeCell.swift in Sources */,
 				622796D0287B2BB100797FB2 /* DetailViewModel.swift in Sources */,
 				62C96135287E024F0053C3B0 /* PokemonManager.swift in Sources */,
 				62457BB02876E60F00ED118A /* NetworkService.swift in Sources */,
