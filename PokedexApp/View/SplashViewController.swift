@@ -26,5 +26,3 @@ class SplashViewController: UIViewController {
         view.addSubview(animationView)
     }
 }
-
-

@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         initialViewController.title = "Main"
-        initialViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+        initialViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 0)
         return UINavigationController(rootViewController: initialViewController)
     }
     
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor     = .systemGreen
         UITabBar.appearance().barTintColor  = UIColor(named: "mainBackground")
         tabBar.viewControllers = [createMainNavigationController(), createFavoriteNavigationController()]
-        return tabBar
+            return tabBar
     }
     
 }

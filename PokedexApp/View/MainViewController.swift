@@ -32,6 +32,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         self.tabBarController?.tabBar.isHidden = false
         if #available(iOS 13.0, *) {
             searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Enter Search Here", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
@@ -110,6 +111,12 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     //MARK: - Search Bar
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        filteredList = mainViewModel.pokemonList
+        self.collectionView.reloadData()
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredList = []

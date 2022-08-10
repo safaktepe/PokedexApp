@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
     
     var str             = ""
     let viewModel       = DetailViewModel()
+    let pokeBallColored = UIImage(named: "ball")
     
     //MARK: - LifeCycle
     
@@ -43,15 +44,14 @@ class DetailViewController: UIViewController {
             }
         viewModel.setChosenPokemon()
     }
-        
+            
     //MARK: - Presentation
-        
         func setupDeteailPage() {
-        
+            
         self.pokeNameLabel?.text             = self.viewModel.chosenPokemon?.name
-        self.idLabel.text                    = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.id)
-        self.weightLabel?.text               = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.weight)
-        self.heightLabel?.text               = self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.height)
+        self.idLabel.text                    = "#\(self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.id))"
+        self.weightLabel?.text               = "\(viewModel.formatHeighWeight(value: self.viewModel.chosenPokemon?.weight ?? 0)) KG"
+        self.heightLabel?.text               = "\(viewModel.formatHeighWeight(value: self.viewModel.chosenPokemon?.height ?? 0)) M"
         var imageUrl                         = self.viewModel.setImage()
         self.imageView.kf.setImage(with: URL(string: imageUrl))
         self.setTypes(typeElements: self.viewModel.chosenPokemon?.types)
@@ -71,14 +71,15 @@ class DetailViewController: UIViewController {
         let atk       : Int = viewModel.chosenPokemon?.stats[1].base_stat ?? 0
         let def       : Int = viewModel.chosenPokemon?.stats[2].base_stat ?? 0
         let spdef     : Int = viewModel.chosenPokemon?.stats[4].base_stat ?? 0
-        let speed     : Int = viewModel.chosenPokemon?.stats[5].base_stat ?? 0
+        let exp     : Int = viewModel.chosenPokemon?.base_experience ?? 0
+
                 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
         self.animateStatBars(value: self.formatFloat(value: hp),    bar: self.hpProgressBar)
         self.animateStatBars(value: self.formatFloat(value: atk),   bar: self.atkProgressBar)
         self.animateStatBars(value: self.formatFloat(value: def),   bar: self.defProgressBar)
         self.animateStatBars(value: self.formatFloat(value: spdef), bar: self.expProgressBar)
-        self.animateStatBars(value: self.formatFloat(value: speed), bar: self.spdProgressBar)
+        self.animateStatBars(value: self.formatFloat(value: exp), bar: self.spdProgressBar)
         }
     }
     
@@ -88,6 +89,7 @@ class DetailViewController: UIViewController {
         if hasFavorited {
             favoriteButton.isHidden = true
         }
+        
     }
     
     
@@ -127,7 +129,22 @@ class DetailViewController: UIViewController {
         
     }
     
+    func rotateButton(completion: @escaping () -> Void ) {
+        UIView.animate(withDuration: 0.5) {
+            self.favoriteButton.transform = CGAffineTransform(rotationAngle: .pi)
+        }
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0,
+            options: UIView.AnimationOptions.curveEaseIn
+        ) {
+            self.favoriteButton.transform = CGAffineTransform(rotationAngle: 2 * .pi)
+        }
+    }
+    
     func configure() {
+        favoriteButton.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
+
         setupLabelRadius()
         hiddenLabel.isHidden        = true
         hiddenProgress.isHidden     = true
@@ -153,11 +170,13 @@ class DetailViewController: UIViewController {
         if hasFavorited {
             print("already exist")
         } else {
-            listOfCars.append(viewModel.chosenPokemon ?? LocalDatabaseManager.sampleDetailedPokemon)
+            listOfCars.append(self.viewModel.chosenPokemon ?? LocalDatabaseManager.sampleDetailedPokemon)
             LocalDatabaseManager.saveAllObjects(allObjects: listOfCars)
         }
+        rotateButton {
+//            self.favoriteButton.isHidden = true
+        }
+        favoriteButton.setImage(pokeBallColored, for: .normal)
         
     }
 }
-
-
