@@ -10,11 +10,17 @@ import VerticalCardSwiper
 
 class SwipeCell: CardCell {
 
+    @IBOutlet weak var swBackgroundView: UIView!
     @IBOutlet weak var swCardImage: UIImageView!
     @IBOutlet weak var swTitleLabel: UILabel!
     @IBOutlet weak var swIdLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        swBackgroundView.layer.cornerRadius = 10
+        
     }
 
 }

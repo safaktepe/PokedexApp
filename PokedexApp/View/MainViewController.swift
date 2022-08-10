@@ -24,6 +24,8 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         configureSearchBar()
         configureCollectionView()
+        navigationController?.navigationBar.barTintColor = UIColor.systemPink
+
         filteredList    = mainViewModel.pokemonList
         title           = "Pokedex"
         navigationController?.navigationBar.prefersLargeTitles = true
