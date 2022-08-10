@@ -117,7 +117,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="Hij-v9-mNi" userLabel="Body Stack View">
-                                        <rect key="frame" x="31" y="113.5" width="352.5" height="66.5"/>
+                                        <rect key="frame" x="41" y="113.5" width="332" height="66.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gBM-gj-35P" userLabel="Weight Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="66.5"/>
@@ -137,16 +137,16 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWo-3h-9s1">
-                                                <rect key="frame" x="139" y="0.0" width="70.5" height="66.5"/>
+                                                <rect key="frame" x="139" y="0.0" width="50" height="66.5"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="asdasd"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Add"/>
                                                 <connections>
                                                     <action selector="favoriteButtonClicked:" destination="mq6-8Y-BBy" eventType="touchUpInside" id="ofp-2e-rZv"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xp0-8m-XVD" userLabel="Height Stack View">
-                                                <rect key="frame" x="298.5" y="0.0" width="54" height="66.5"/>
+                                                <rect key="frame" x="278" y="0.0" width="54" height="66.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.7 M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY8-CM-yf4">
                                                         <rect key="frame" x="0.0" y="0.0" width="54" height="26.5"/>
@@ -305,6 +305,7 @@
                         <outlet property="defProgressBar" destination="GNv-NG-B74" id="36O-BI-aY6"/>
                         <outlet property="expLabel" destination="SWQ-Tw-9RP" id="n2t-1m-nPK"/>
                         <outlet property="expProgressBar" destination="UkS-xV-gEs" id="OCM-z0-isp"/>
+                        <outlet property="favoriteButton" destination="bWo-3h-9s1" id="dt7-Lm-XKV"/>
                         <outlet property="firstTitleLabel" destination="1OQ-E3-unY" id="cWT-x3-DiP"/>
                         <outlet property="heightLabel" destination="lY8-CM-yf4" id="NRu-p9-Bhd"/>
                         <outlet property="hiddenLabel" destination="b7V-lT-0bA" id="Ld7-Xd-pRM"/>

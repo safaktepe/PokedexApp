@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var defProgressBar       : UIProgressView!
     @IBOutlet weak var spdProgressBar       : UIProgressView!
     @IBOutlet weak var expProgressBar       : UIProgressView!
+    @IBOutlet weak var favoriteButton       : UIButton!
     @IBOutlet weak var imageView            : UIImageView!
     
     var str             = ""
@@ -57,6 +58,8 @@ class DetailViewController: UIViewController {
         self.setProgressAnimates()
         var backgroundColor: String          = self.viewModel.chosenPokemon?.types[0].type.name ?? ""
         self.backgroundView.backgroundColor  = UIColor(named: backgroundColor)
+        self.setButton()
+
     }
     //MARK: - Functions
     func animateStatBars(value: Float, bar: UIProgressView) {
@@ -77,9 +80,16 @@ class DetailViewController: UIViewController {
         self.animateStatBars(value: self.formatFloat(value: spdef), bar: self.expProgressBar)
         self.animateStatBars(value: self.formatFloat(value: speed), bar: self.spdProgressBar)
         }
-        
-        
     }
+    
+    func setButton() {
+        let savedPokemon = LocalDatabaseManager.getAllObjects
+        let hasFavorited = savedPokemon.firstIndex(where: {$0.name == self.viewModel.chosenPokemon?.name}) != nil
+        if hasFavorited {
+            favoriteButton.isHidden = true
+        }
+    }
+    
     
     func formatFloat(value: Int) -> Float {
         var formatedValue: Float = (Float(value) * 1.0) / 120
@@ -134,17 +144,20 @@ class DetailViewController: UIViewController {
         defProgressBar.transform = defProgressBar.transform.scaledBy(x: 1, y: 0.5)
         spdProgressBar.transform = spdProgressBar.transform.scaledBy(x: 1, y: 0.5)
         expProgressBar.transform = expProgressBar.transform.scaledBy(x: 1, y: 0.5)
-
-
-        
     }
     
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
         var listOfCars: [DetailPokemon] = LocalDatabaseManager.getAllObjects
-        listOfCars.append(viewModel.chosenPokemon ?? LocalDatabaseManager.sampleDetailedPokemon)
-        LocalDatabaseManager.saveAllObjects(allObjects: listOfCars)
+        let hasFavorited = listOfCars.firstIndex(where: {$0.name == self.viewModel.chosenPokemon?.name}) != nil
+        if hasFavorited {
+            print("already exist")
+        } else {
+            listOfCars.append(viewModel.chosenPokemon ?? LocalDatabaseManager.sampleDetailedPokemon)
+            LocalDatabaseManager.saveAllObjects(allObjects: listOfCars)
+        }
+        
     }
-    
 }
+
 

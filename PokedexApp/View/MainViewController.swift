@@ -128,8 +128,6 @@ extension MainViewController: UICollectionViewDataSource {
     
 }
 
-
-
         //MARK: Size of cells
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

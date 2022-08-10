@@ -9,14 +9,11 @@ import UIKit
 import Lottie
 
 class SplashViewController: UIViewController {
-
     let animationView = AnimationView()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAnimation()
     }
-    
     func setupAnimation() {
         animationView.animation          = Animation.named("pikachu")
         animationView.frame.size.width   = (view.frame.size.width)  * 0.84
@@ -28,12 +25,6 @@ class SplashViewController: UIViewController {
         animationView.play()
         view.addSubview(animationView)
     }
-    
-    
-    
-    
-    
-    
 }
 
 
