@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +22,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.16862745098039217" green="0.16078431372549018" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
                             <constraint firstItem="ZJJ-nL-VPu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4Fq-ze-ze5"/>
                             <constraint firstItem="ZJJ-nL-VPu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="RzT-G6-iWk"/>
@@ -36,6 +37,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pokepic" width="892" height="676"/>
+        <image name="pokepic" width="892" height="817"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

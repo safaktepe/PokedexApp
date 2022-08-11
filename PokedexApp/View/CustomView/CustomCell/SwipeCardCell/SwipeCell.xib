@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,31 +24,34 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dTu-F9-0Ft">
                                 <rect key="frame" x="44" y="40" width="209" height="233"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qk2-Ji-OL1">
-                                <rect key="frame" x="68" y="389" width="161" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUY-aJ-16I">
+                                <rect key="frame" x="40" y="369.5" width="216" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqC-GW-eKB">
-                                <rect key="frame" x="124" y="325" width="48" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" name="dark"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rx4-TJ-nPG">
+                                <rect key="frame" x="40" y="405.5" width="216" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Qk2-Ji-OL1" secondAttribute="trailing" constant="67" id="B5O-QY-ySD"/>
-                            <constraint firstItem="xqC-GW-eKB" firstAttribute="centerX" secondItem="zB6-Qt-m2d" secondAttribute="centerX" id="BPq-7s-z7n"/>
+                            <constraint firstItem="LUY-aJ-16I" firstAttribute="leading" secondItem="zB6-Qt-m2d" secondAttribute="leading" constant="40" id="9Eg-2Q-p8J"/>
                             <constraint firstAttribute="trailing" secondItem="dTu-F9-0Ft" secondAttribute="trailing" constant="43" id="E9Q-HF-xT4"/>
+                            <constraint firstItem="rx4-TJ-nPG" firstAttribute="top" relation="lessThanOrEqual" secondItem="LUY-aJ-16I" secondAttribute="bottom" constant="12" id="KXg-pT-xtc"/>
                             <constraint firstItem="dTu-F9-0Ft" firstAttribute="height" secondItem="zB6-Qt-m2d" secondAttribute="height" multiplier="0.460474" id="KoY-RG-Vjf"/>
-                            <constraint firstItem="Qk2-Ji-OL1" firstAttribute="leading" secondItem="zB6-Qt-m2d" secondAttribute="leading" constant="68" id="O1I-iC-EKi"/>
+                            <constraint firstItem="rx4-TJ-nPG" firstAttribute="leading" secondItem="zB6-Qt-m2d" secondAttribute="leading" constant="40" id="OyC-zz-pIP"/>
+                            <constraint firstAttribute="bottom" secondItem="rx4-TJ-nPG" secondAttribute="bottom" constant="74" id="Vmz-41-BrX"/>
+                            <constraint firstAttribute="trailing" secondItem="rx4-TJ-nPG" secondAttribute="trailing" constant="40" id="WH4-Pw-2ov"/>
                             <constraint firstItem="dTu-F9-0Ft" firstAttribute="leading" secondItem="zB6-Qt-m2d" secondAttribute="leading" constant="44" id="ZO1-pX-GFp"/>
                             <constraint firstItem="dTu-F9-0Ft" firstAttribute="width" secondItem="zB6-Qt-m2d" secondAttribute="width" multiplier="0.706081" id="b97-zl-VbQ"/>
-                            <constraint firstItem="Qk2-Ji-OL1" firstAttribute="top" secondItem="xqC-GW-eKB" secondAttribute="bottom" constant="40" id="hj5-qc-Hcd"/>
-                            <constraint firstItem="xqC-GW-eKB" firstAttribute="top" secondItem="dTu-F9-0Ft" secondAttribute="bottom" constant="52" id="jJV-xk-pxF"/>
+                            <constraint firstItem="rx4-TJ-nPG" firstAttribute="top" secondItem="LUY-aJ-16I" secondAttribute="bottom" constant="12" id="cQN-t5-Mmw"/>
+                            <constraint firstAttribute="trailing" secondItem="LUY-aJ-16I" secondAttribute="trailing" constant="40" id="jeF-Jr-U0z"/>
                             <constraint firstItem="dTu-F9-0Ft" firstAttribute="top" secondItem="zB6-Qt-m2d" secondAttribute="top" constant="40" id="rvn-IY-5dq"/>
+                            <constraint firstItem="LUY-aJ-16I" firstAttribute="top" relation="lessThanOrEqual" secondItem="dTu-F9-0Ft" secondAttribute="bottom" constant="96.5" id="vOP-RB-lT0"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -65,16 +67,16 @@
             <connections>
                 <outlet property="swBackgroundView" destination="zB6-Qt-m2d" id="oIS-Ne-sP4"/>
                 <outlet property="swCardImage" destination="dTu-F9-0Ft" id="HXh-Wg-SVO"/>
-                <outlet property="swIdLabel" destination="xqC-GW-eKB" id="NFM-ZQ-aId"/>
-                <outlet property="swTitleLabel" destination="Qk2-Ji-OL1" id="g8u-c1-BRp"/>
+                <outlet property="swIdLabel" destination="LUY-aJ-16I" id="YKr-Ie-A0F"/>
+                <outlet property="swTitleLabel" destination="rx4-TJ-nPG" id="NBS-LN-jpn"/>
             </connections>
             <point key="canvasLocation" x="310.14492753623193" y="220.98214285714286"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <namedColor name="dark">
-            <color red="0.016000000759959221" green="0.027000000700354576" blue="0.024000000208616257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

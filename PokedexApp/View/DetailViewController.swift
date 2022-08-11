@@ -126,7 +126,6 @@ class DetailViewController: UIViewController {
         firstTitleLabel?.layer.masksToBounds     = true
         secondTitleLabel?.layer.cornerRadius     = 16
         secondTitleLabel?.layer.masksToBounds    = true
-        
     }
     
     func rotateButton(completion: @escaping () -> Void ) {

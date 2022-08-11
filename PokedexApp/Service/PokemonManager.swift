@@ -25,4 +25,3 @@ class PokemonManager {
 
     }
 }
-//https://pokeapi.co/api/v2/pokemon?limit151

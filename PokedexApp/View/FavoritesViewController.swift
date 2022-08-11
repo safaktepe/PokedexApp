@@ -10,12 +10,12 @@ import VerticalCardSwiper
 
 class FavoritesViewController: UIViewController, VerticalCardSwiperDatasource {
     
-    @IBOutlet weak var myTableView: UITableView!
-    let viewModel       = DetailViewModel()
-    var onComplete: ( () -> Void )?
-    let localDB = LocalDatabaseManager()
-    var listOfBookmarks : [DetailPokemon] = []
-    private var cardSwiper: VerticalCardSwiper!
+    var mainViewModel                : MainViewModel = MainViewModel()
+    let viewModel                    = DetailViewModel()
+    var onComplete                   : ( () -> Void )?
+    let localDB                      = LocalDatabaseManager()
+    var listOfBookmarks              : [DetailPokemon] = []
+    private var cardSwiper           : VerticalCardSwiper!
 
     func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
         return listOfBookmarks.count
@@ -26,8 +26,6 @@ class FavoritesViewController: UIViewController, VerticalCardSwiperDatasource {
         return imageUrl
     }
     
-   
-       
     
     func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
         if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: "SwipeCell", for:index) as? SwipeCell {
@@ -37,19 +35,16 @@ class FavoritesViewController: UIViewController, VerticalCardSwiperDatasource {
             cardCell.swTitleLabel.text           = listOfBookmarks[index].name
             var backgroundColor: String          = listOfBookmarks[index].types[0].type.name
             cardCell.swBackgroundView.backgroundColor             = UIColor(named: backgroundColor)
-            return cardCell
+            return cardCell 
         }
         return CardCell()
     }
- 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.systemPink
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
         setFavList()
-        setGesture()
         setCardSwiper()
         cardSwiper.delegate = self
         cardSwiper.datasource = self
@@ -70,41 +65,17 @@ class FavoritesViewController: UIViewController, VerticalCardSwiperDatasource {
         view.addSubview(cardSwiper)
         cardSwiper.firstItemTransform = 0.14
         cardSwiper.topInset = 120
+        cardSwiper.cardSpacing = 20
         cardSwiper.stackedCardsCount = 3
         cardSwiper.datasource = self
         cardSwiper.register(nib: UINib(nibName: "SwipeCell", bundle: nil), forCellWithReuseIdentifier: "SwipeCell")
     }
    
-    func setGesture() {
-        let gesture            = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-        cardSwiper?.addGestureRecognizer(gesture)
-    }
-    
-    
-    
-    
-    @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
-        let location                 = gesture.location(in: cardSwiper)
-        guard let selectedIndex      = myTableView.indexPathForRow(at: location) else { return }
-        print(selectedIndex.row)
-        let alertController = UIAlertController(title: "Remove Pokemon?", message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
-            self.listOfBookmarks.remove(at: selectedIndex.item)
-            self.myTableView.deleteRows(at: [selectedIndex], with: .fade)
-            LocalDatabaseManager.saveAllObjects(allObjects: self.listOfBookmarks)
-        }))
-        
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alertController, animated: true)
-        
-        
-    }
-
 }
 
 extension FavoritesViewController: VerticalCardSwiperDelegate {
     func sizeForItem(verticalCardSwiperView: VerticalCardSwiperView, index: Int) -> CGSize {
-        return CGSize(width: verticalCardSwiperView.frame.width * 0.75, height: verticalCardSwiperView.frame.height * 0.75)
+        return CGSize(width: verticalCardSwiperView.frame.width * 0.75, height: verticalCardSwiperView.frame.height * 0.7)
 
     }
     
@@ -117,3 +88,4 @@ extension FavoritesViewController: VerticalCardSwiperDelegate {
     
     
 }
+

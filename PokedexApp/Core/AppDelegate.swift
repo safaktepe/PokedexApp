@@ -16,14 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow()
         UINavigationBar.appearance().largeTitleTextAttributes   = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().titleTextAttributes        = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "SplashViewController") as! SplashViewController
-//        window?.rootViewController = initialViewController
-        window?.rootViewController = createTabBarController()
-
+        
+        let navigationController = UINavigationController()
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        
+        let appCoordinator = AppCoordinator(navController: navigationController)
+        appCoordinator.start()
         return true
     }
     
@@ -51,6 +51,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBar.viewControllers = [createMainNavigationController(), createFavoriteNavigationController()]
             return tabBar
     }
-    
 }
 

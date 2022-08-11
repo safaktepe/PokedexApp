@@ -17,6 +17,7 @@
 		6257070F2874BBDC0023410F /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257070D2874BBDC0023410F /* PokeCell.swift */; };
 		625707102874BBDC0023410F /* PokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6257070E2874BBDC0023410F /* PokeCell.xib */; };
 		625707122874BC0D0023410F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625707112874BC0D0023410F /* DetailViewController.swift */; };
+		62818F5228A511DF00CEEC71 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62818F5128A511DF00CEEC71 /* AppCoordinator.swift */; };
 		6292902728759397008AA399 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292902628759397008AA399 /* CardView.swift */; };
 		62AC4D69289691BA00F24028 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AC4D68289691BA00F24028 /* FavoritesViewController.swift */; };
 		62AC4D6B2896A17100F24028 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AC4D6A2896A17100F24028 /* SplashViewController.swift */; };
@@ -45,6 +46,7 @@
 		6257070D2874BBDC0023410F /* PokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
 		6257070E2874BBDC0023410F /* PokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokeCell.xib; sourceTree = "<group>"; };
 		625707112874BC0D0023410F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		62818F5128A511DF00CEEC71 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6292902628759397008AA399 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		62AC4D68289691BA00F24028 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		62AC4D6A2896A17100F24028 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				62D40BF62874230E00A748E8 /* Main.storyboard */,
 				62D40BF02874230E00A748E8 /* AppDelegate.swift */,
 				62D40BFB2874231000A748E8 /* LaunchScreen.storyboard */,
+				62818F5128A511DF00CEEC71 /* AppCoordinator.swift */,
 				62D40BF92874231000A748E8 /* Assets.xcassets */,
 				62F1D6E42896A3210055F123 /* pikachu.json */,
 			);
@@ -359,6 +362,7 @@
 			files = (
 				6257070F2874BBDC0023410F /* PokeCell.swift in Sources */,
 				62C96137287E02A00053C3B0 /* PokemonPage.swift in Sources */,
+				62818F5228A511DF00CEEC71 /* AppCoordinator.swift in Sources */,
 				62249FC128A3DE1E003D34CB /* SwipeCell.swift in Sources */,
 				622796D0287B2BB100797FB2 /* DetailViewModel.swift in Sources */,
 				62C96135287E024F0053C3B0 /* PokemonManager.swift in Sources */,
