@@ -1,12 +1,14 @@
 PODS:
   - CocoaAsyncSocket (7.6.5)
   - Kingfisher (6.3.1)
+  - Loaf (0.7.0)
   - lottie-ios (3.4.1)
   - VerticalCardSwiper (2.3.1)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
   - Kingfisher
+  - Loaf
   - lottie-ios
   - VerticalCardSwiper
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   trunk:
     - CocoaAsyncSocket
     - Kingfisher
+    - Loaf
     - lottie-ios
     - VerticalCardSwiper
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   lottie-ios: 016449b5d8be0c3dcbcfa0a9988469999cd04c5d
   VerticalCardSwiper: 68df635b354500f86934ea044ade37a264c044c6
 
-PODFILE CHECKSUM: 0374689f8e1f2e58b40406607bbed3cfa33b8ea6
+PODFILE CHECKSUM: 1e662a4130d7289474b2fa156b6fe2fe7110717e
 
 COCOAPODS: 1.11.3

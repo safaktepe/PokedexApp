@@ -10,7 +10,7 @@ import Kingfisher
 
 class MainViewController: UIViewController, UISearchBarDelegate {
 
-    //MARK: - Variables and Outlets
+    //MARK: - Variables, Componenets and Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     let customCellId                 = "PokeCell"
     let leftRightPadding             = 15.0
@@ -19,26 +19,27 @@ class MainViewController: UIViewController, UISearchBarDelegate {
     var filteredList                 : [Pokemon]!
     var pokemonId                    : String = ""
     var isEmpty                      : Bool = false
-    
+
     private lazy var imageView       : UIImageView = {
-        let myImageView   = UIImageView()
-        myImageView.image = UIImage(named: "emptySearch")
-        myImageView.translatesAutoresizingMaskIntoConstraints = false
+        let myImageView         = UIImageView()
+        myImageView.image       = UIImage(named: "emptySearch")
         myImageView.contentMode = .scaleAspectFill
+        myImageView.translatesAutoresizingMaskIntoConstraints = false
         return myImageView
     }()
     private lazy var backgroundOfImageView  : UIView = {
-        let containerView = UIView()
-        containerView.translatesAutoresizingMaskIntoConstraints = false
+        let containerView             = UIView()
         containerView.backgroundColor = UIColor(named: "backgroundColor")
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
     }()
     private lazy var searchNulLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Sorry... \n I don't know anyone by that name."
-        label.textColor = .yellow
+        let label           = UILabel()
+        label.text          = "Sorry... \n I don't know anyone by that name."
+        label.textColor     = .yellow
         label.numberOfLines = 2
         label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -52,7 +53,7 @@ class MainViewController: UIViewController, UISearchBarDelegate {
         navigationController?.navigationBar.barTintColor = UIColor.systemPink
         filteredList    = mainViewModel.pokemonList
         title           = "Pokedex"
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,7 +107,7 @@ extension MainViewController: UICollectionViewDataSource {
         mainViewModel.getIdFromUrl(url: chosedPokemon.url) { resultId in
         self.pokemonId = resultId!
         }
-        var imageUrl                = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonId).png"
+        var imageUrl                = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(pokemonId).png"
         cell.cellImageView.kf.setImage(with: URL(string: imageUrl))
         return cell
     }

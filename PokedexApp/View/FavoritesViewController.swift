@@ -22,7 +22,7 @@ class FavoritesViewController: UIViewController, VerticalCardSwiperDatasource {
     }
     
     func setImage(pokeId: Int) -> String {
-        var imageUrl   = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokeId).png"
+        var imageUrl   = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(pokeId).png"
         return imageUrl
     }
     

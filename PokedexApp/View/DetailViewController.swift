@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Loaf
 
 class DetailViewController: UIViewController {
     
@@ -47,7 +48,7 @@ class DetailViewController: UIViewController {
             
     //MARK: - Presentation
         func setupDeteailPage() {
-            
+        self.imageView.contentMode = .scaleAspectFill
         self.pokeNameLabel?.text             = self.viewModel.chosenPokemon?.name
         self.idLabel.text                    = "#\(self.viewModel.convertStringFromOptInt(value: self.viewModel.chosenPokemon?.id))"
         self.weightLabel?.text               = "\(viewModel.formatHeighWeight(value: self.viewModel.chosenPokemon?.weight ?? 0)) KG"
@@ -162,7 +163,7 @@ class DetailViewController: UIViewController {
         expProgressBar.transform = expProgressBar.transform.scaledBy(x: 1, y: 0.5)
     }
     
-    
+    //MARK: - Button Clicked
     @IBAction func favoriteButtonClicked(_ sender: Any) {
         var listOfCars: [DetailPokemon] = LocalDatabaseManager.getAllObjects
         let hasFavorited = listOfCars.firstIndex(where: {$0.name == self.viewModel.chosenPokemon?.name}) != nil
@@ -171,6 +172,8 @@ class DetailViewController: UIViewController {
         } else {
             listOfCars.append(self.viewModel.chosenPokemon ?? LocalDatabaseManager.sampleDetailedPokemon)
             LocalDatabaseManager.saveAllObjects(allObjects: listOfCars)
+            Loaf("Pokemon added to the Favorites!", state: .custom(.init(backgroundColor: .darkGray, icon: UIImage(named: "ball"), width: .screenPercentage(0.8))), location: .top, presentingDirection: .vertical, dismissingDirection: .vertical, sender: self).show(.short)
+
         }
         rotateButton {
 //            self.favoriteButton.isHidden = true

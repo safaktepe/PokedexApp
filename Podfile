@@ -11,5 +11,6 @@ target 'PokedexApp' do
  pod 'CocoaAsyncSocket'
  pod 'lottie-ios'
  pod 'VerticalCardSwiper'
+ pod 'Loaf'
 
 end
