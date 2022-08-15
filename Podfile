@@ -8,5 +8,9 @@ target 'PokedexApp' do
   # Pods for PokedexApp
 	
  pod 'Kingfisher'
- pod 'Bagel'
+ pod 'CocoaAsyncSocket'
+ pod 'lottie-ios'
+ pod 'VerticalCardSwiper'
+ pod 'Loaf'
+
 end

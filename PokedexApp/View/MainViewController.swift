@@ -8,25 +8,67 @@
 import UIKit
 import Kingfisher
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UISearchBarDelegate {
 
-    //MARK: - Variables and Outlets
+    //MARK: - Variables, Componenets and Outlets
     @IBOutlet weak var collectionView: UICollectionView!
-    let customCellId                 =  "PokeCell"
+    let customCellId                 = "PokeCell"
     let leftRightPadding             = 15.0
+    let searchController             = UISearchController(searchResultsController: nil)
     var mainViewModel                : MainViewModel = MainViewModel()
+    var filteredList                 : [Pokemon]!
+    var pokemonId                    : String = ""
+    var isEmpty                      : Bool = false
+
+    private lazy var imageView       : UIImageView = {
+        let myImageView         = UIImageView()
+        myImageView.image       = UIImage(named: "emptySearch")
+        myImageView.contentMode = .scaleAspectFill
+        myImageView.translatesAutoresizingMaskIntoConstraints = false
+        return myImageView
+    }()
+    private lazy var backgroundOfImageView  : UIView = {
+        let containerView             = UIView()
+        containerView.backgroundColor = UIColor(named: "backgroundColor")
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        return containerView
+    }()
+    private lazy var searchNulLabel : UILabel = {
+        let label           = UILabel()
+        label.text          = "Sorry... \n I don't know anyone by that name."
+        label.textColor     = .yellow
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+   
     
-    
-    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSearchBar()
         configureCollectionView()
-        title = "Pokedex"
+        navigationController?.navigationBar.barTintColor = UIColor.systemPink
+        filteredList    = mainViewModel.pokemonList
+        title           = "Pokedex"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        if #available(iOS 13.0, *) {
+            searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Enter Search Here", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        } else {
+            // Fallback on earlier versions
+        }
+
     }
     
     //MARK: - Configuration for CollectionView
+    
+    
     func configureCollectionView() {
         
         collectionView.dataSource                = self
@@ -38,49 +80,119 @@ class MainViewController: UIViewController {
         flow.sectionInset                        = UIEdgeInsets(top: 20, left: leftRightPadding, bottom: 0, right: leftRightPadding)
     }
     
+    func configureSearchBar() {
+        navigationItem.searchController                   = searchController
+        navigationItem.hidesSearchBarWhenScrolling        = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate               = self
+
+    }
 }
 
-        //MARK: - CollectionView Extensions
+    //MARK: - CollectionView Extensions
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        mainViewModel.pokemonList.count
+        filteredList.count
     }
     
     
-        //MARK: CellForItemAt
+    //MARK: CellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell                    = collectionView.dequeueReusableCell(withReuseIdentifier: customCellId, for: indexPath) as! PokeCell
-        let chosedPokemon           = mainViewModel.pokemonList[indexPath.item]
+        let chosedPokemon           = filteredList[indexPath.item]
         cell.cellNameLabel.text     = chosedPokemon.name
-        var imageUrl                = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.item + 1).png"
+        
+        mainViewModel.getIdFromUrl(url: chosedPokemon.url) { resultId in
+        self.pokemonId = resultId!
+        }
+        var imageUrl                = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(pokemonId).png"
         cell.cellImageView.kf.setImage(with: URL(string: imageUrl))
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-    
     
         //MARK:  didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
-        let currentData                   = mainViewModel.pokemonList[indexPath.row]
         let detailVC                      = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
-//        detailVC?.viewModel.pokeId      = detailVC?.viewModel.getPokemonIndex(pokemon: currentData)
-        detailVC?.viewModel.pokeId        =  (indexPath.row + 1)
+        let chosedPokemon                 = filteredList[indexPath.item]
+        mainViewModel.getIdFromUrl(url: chosedPokemon.url) { resultId in
+        self.pokemonId = resultId!
+        }
+        detailVC?.viewModel.pokeId        =  Int(pokemonId)
 
         guard let detailViewController    = detailVC else { return }
         DispatchQueue.main.async {
-//        detailViewController.pokeId       = self.mainViewModel.getPokemonIndex(pokemon: currentCell)
         }
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
+    
+    //MARK: - Search Bar
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        filteredList = mainViewModel.pokemonList
+        self.collectionView.reloadData()
+        backgroundOfImageView.removeFromSuperview()
+        collectionView.isHidden = false
+    }
+    
+    func createImageView() {
+        view.addSubview(backgroundOfImageView)
+        backgroundOfImageView.addSubview(imageView)
+        backgroundOfImageView.addSubview(searchNulLabel)
+        NSLayoutConstraint.activate([
+            backgroundOfImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundOfImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundOfImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundOfImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            searchNulLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            searchNulLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: -16),
+
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            
+
+        ])
+    }
+    
+    func showImageView(isSearchNil: Bool){
+        if isSearchNil == true {
+            collectionView.isHidden = true
+            createImageView()
+        }
+        else {
+            imageView.removeFromSuperview()
+            backgroundOfImageView.removeFromSuperview()
+            collectionView.isHidden = false
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredList = []
+        if searchText == "" {
+            filteredList = mainViewModel.pokemonList
+            backgroundOfImageView.removeFromSuperview()
+            collectionView.isHidden = false
+        } else {
+            for poke in mainViewModel.pokemonList {
+                if poke.name.lowercased().contains(searchText.lowercased()) {
+                    self.showImageView(isSearchNil: false)
+                    filteredList.append(poke)
+                } else if searchText.count > 2{
+                    self.showImageView(isSearchNil: true)
+                }
+            }
+        }
+        self.collectionView.reloadData()
+    }
+    
+    
 }
-
-
 
         //MARK: Size of cells
 extension MainViewController: UICollectionViewDelegateFlowLayout {
@@ -94,3 +206,4 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
     
+ 

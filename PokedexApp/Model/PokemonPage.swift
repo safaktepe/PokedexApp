@@ -22,12 +22,13 @@ struct Pokemon: Codable, Identifiable ,Equatable {
 }
 
 struct DetailPokemon: Codable {
-    let id      : Int
-    let height  : Int
-    let weight  : Int
-    let name    : String
-    let stats   : [Stat]
-    let types   : [TypeElement]
+    let id              : Int
+    let height          : Int
+    let weight          : Int
+    let name            : String
+    let stats           : [Stat]
+    let types           : [TypeElement]
+    let base_experience : Int
 }
 
 struct Stat: Codable {
